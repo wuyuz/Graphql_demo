@@ -6,7 +6,8 @@ type Meetup struct {
 	ID          string `json:"id"`
 	Name        string `json:"name"`
 	Description string `json:"description"`
-	User        *User  `json:"user"`
+	User        *User  `json:"user" pg:"-"`
+	UserID      string `json:"userId"`
 }
 
 type NewMeetup struct {
@@ -18,5 +19,5 @@ type User struct {
 	ID       string    `json:"id"`
 	Username string    `json:"username"`
 	Email    string    `json:"email"`
-	Meetups  []*Meetup `json:"meetups"`
+	Meetups  []*Meetup `json:"meetups" pg:"-"`
 }
